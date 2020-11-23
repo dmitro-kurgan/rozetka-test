@@ -1,0 +1,22 @@
+@mixin state($type: hover, $type-2: null, $type-3: null) {
+  @if $type and not $type-2 and not $type-3 {
+    &:#{$type} {
+      @content;
+    }
+  }
+
+  @else if $type-2 and not $type-3 {
+    &:#{$type},
+    &:#{$type-2} {
+      @content;
+    }
+  }
+
+  @else if $type-3 {
+    &:#{$type},
+    &:#{$type-2},
+    &:#{$type-3} {
+      @content;
+    }
+  }
+}

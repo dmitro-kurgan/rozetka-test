@@ -1,0 +1,29 @@
+@mixin pseudo($type: before, $pos: null, $display: block, $content: ""){
+  &::#{$type} {
+    @if $pos {
+      position: $pos;
+    }
+
+    display: $display;
+
+    @content;
+
+    content: $content;
+  }
+}
+
+@mixin before {
+  &::before {
+    @content;
+
+    content: "";
+  }
+}
+
+@mixin after {
+  &::after {
+    @content;
+
+    content: "";
+  }
+}

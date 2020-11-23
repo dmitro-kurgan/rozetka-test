@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-prettier",
+    "stylelint-config-rational-order"
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-config-rational-order/plugin"
+  ],
+  "rules": {
+    "order/properties-order": [],
+    "plugin/rational-order": [
+      true,
+      {
+        "border-in-box-model": false,
+        "empty-line-between-groups": false
+      }
+    ],
+    "font-family-name-quotes": "always-where-recommended",
+    "scss/function-quote-no-quoted-strings-inside": true,
+    "function-url-quotes": [
+      "always",
+      {
+        "except": ["empty"]
+      }
+    ],
+    "selector-attribute-quotes": "always",
+    "string-quotes": "double",
+    "max-nesting-depth": 3,
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "0,4,2",
+    "declaration-no-important": true,
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-name-no-unknown": true,
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["appearance"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["font-smoothing"]
+      }
+    ],
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "no-empty-source": null,
+    "selector-class-pattern": "[a-z-]+",
+    "selector-id-pattern": "[a-z-]+",
+    "selector-max-id": 0,
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute", "class"]
+      }
+    ],
+    "selector-max-universal": 1,
+    "selector-pseudo-element-no-unknown": true,
+    "unit-whitelist": ["px", "%", "em", "rem", "vw", "vh", "deg", "s", "dppx", "dpi", "fr"],
+    "max-empty-lines": 1,
+    "max-line-length": 140
+  }
+}

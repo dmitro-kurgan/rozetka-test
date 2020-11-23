@@ -1,0 +1,5 @@
+$container: container-width("desktop"); // default;
+
+@function block-width($block, $container: $container) {
+  @return percentage($block / $container);
+}

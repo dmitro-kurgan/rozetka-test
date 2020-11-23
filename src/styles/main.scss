@@ -1,0 +1,8 @@
+// --- #Global styles--- //
+@import "~normalize.css/normalize";
+@import "./base";
+@import "./utilities";
+@import "./modules";
+
+// --- #App styles--- //
+@import "../app/app";

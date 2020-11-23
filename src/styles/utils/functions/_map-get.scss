@@ -1,0 +1,23 @@
+@function gray($key: "100") {
+  @return map-get($grays, $key);
+}
+
+@function color($key: "blue") {
+  @return map-get($colors, $key);
+}
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+@function font-weight($key: "Regular") {
+  @return map-get($font-weights, $key);
+}
+
+@function font-size($key: "normal") {
+  @return map-get($font-sizes, $key);
+}
+
+@function breakpoint($key: "desktop") {
+  @return map-get($breakpoints, $key);
+}

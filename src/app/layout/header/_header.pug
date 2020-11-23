@@ -1,0 +1,22 @@
+header.header
+  div.header__left
+    a(
+    class="logo"
+    href="/"
+    )
+    button.sidebar-collapse
+      +icon("arrow")
+    button.hamburger
+      span.hamburger__wrapper.notify
+        span.hamburger__line
+        span.hamburger__line
+        span.hamburger__line
+  div.header__main
+    a(
+    href="#"
+    class="notifications"
+    )
+      +icon("ring")
+    button.account
+      +icon("account")
+      span.account__name Мистер Фокс

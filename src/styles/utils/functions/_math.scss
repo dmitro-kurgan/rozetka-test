@@ -1,0 +1,9 @@
+$math-value: 2; // Default value
+
+@function multiply($number, $value: $math-value){
+  @return $number * $value;
+}
+
+@function divide($number, $value: $math-value){
+  @return $number / $value;
+}

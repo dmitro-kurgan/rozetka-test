@@ -1,0 +1,29 @@
+//- Put your markup here
+aside.sidebar
+  div.sidebar__title(title="Wellshina") Wellshina
+  nav.nav
+    each item, index in nav.nav
+      if item.collapse
+        a(
+          href="#"
+          class="nav__item nav__item--collapse"
+        )
+          if item.notifications
+            span.nav__item-icon.notify
+              +icon(index)
+          else
+            span.nav__item-icon
+              +icon(index)
+          |
+          = item.name
+          if item.label
+            span.label= item.label
+      else
+        a(
+          href="#"
+          class="nav__item"
+        )
+          span.nav__item-icon
+            +icon(index)
+          |
+          = item.name

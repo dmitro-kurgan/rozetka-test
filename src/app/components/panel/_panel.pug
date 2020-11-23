@@ -1,0 +1,79 @@
+form.panel
+  h1.panel__title.heading.heading--h1 Заказы
+  div.panel__search.panel__search--mobile.form-search
+    button(type="submit" class="btn-search")
+      +icon("search")
+    input(
+      type="search"
+      placeholder="Поиск"
+      class="form-control"
+    )
+  div.panel__search.form-search
+    button(type="submit" class="btn-search")
+      +icon("search")
+    input(
+    type="search"
+    placeholder="Номер заказа"
+    class="form-control"
+    )
+  p.panel__search-info.small-text Найдено &nbsp;
+    span 25 заказов
+    | &nbsp;по фильтру
+  button(
+  type="button"
+  class="btn btn--md btn--default btn--export"
+  )
+    +icon("export")
+    | Экспорт
+  div.filters-wrapper
+    button.filters-collapse
+      span.filters-collapse__icon.notify.notify--white.notify--sm
+        +icon("filter")
+      | Фильтр
+    ul.filters
+      li.filters__item Фильтры
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon.notify.notify--white.notify--sm
+            +icon("time")
+          | Статус
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon
+            +icon("delivery-pay")
+          | Доставка и оплата
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon
+            +icon("data")
+          | Дата
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon
+            +icon("customer")
+          | Покупатель
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon
+            +icon("total")
+          | Сумма
+      li.filters__item
+        a(href="#" class="filters__item-sort")
+          span.filters__item-icon.notify.notify--white.notify--sm
+            +icon("good")
+          | Товар
+    button(
+    type="button"
+    class="btn btn--sm btn--default"
+    )
+      | Сбросить
+    button(
+    type="button"
+    class="btn btn--sm btn--ghost"
+    )
+      | Новый заказ
+      +icon("close")
+    button.sorts
+      span.sorts__icon
+        +icon("sort")
+      span.sorts__text Сортировка

@@ -1,0 +1,202 @@
+$border-filters-item: 1px solid #e0e0e0;
+
+.panel {
+  @include flex($wrap: wrap, $align: center);
+
+  margin-bottom: 16px;
+
+  @include mq("phone-large") {
+    padding: 0 24px;
+  }
+
+  @include mq("phone") {
+    padding: 0 15px;
+  }
+
+  &__title {
+    @include mq("phone", min) {
+      margin-right: 16px;
+    }
+
+    @include mq("phone") {
+      flex-basis: 100%;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__search {
+    max-width: 175px;
+    margin-right: 24px;
+
+    &--mobile {
+      display: none;
+      max-width: 87px;
+      margin-right: 0;
+      border: none;
+
+      .form-control {
+        padding-left: 27px;
+        border: none;
+      }
+
+      .btn-search {
+        left: 0;
+      }
+    }
+
+    @include mq("phone-large", max, "phone", min) {
+      margin-right: 16px;
+    }
+
+    @include mq("phone") {
+      display: none;
+
+      &--mobile {
+        display: block;
+      }
+    }
+  }
+
+  &__search-info {
+    @include mq("phone") {
+      flex-basis: 100%;
+      order: 1;
+      margin-top: 10px;
+    }
+
+    span {
+      color: $color-base;
+    }
+  }
+
+  .btn--export {
+    margin-left: auto;
+
+    @include mq("phone-large") {
+      display: none;
+    }
+  }
+
+  .btn + .btn {
+    margin-left: 8px;
+  }
+}
+
+.filters-wrapper {
+  @include mq("phone-large", max, "phone", min) {
+    margin-top: 18px;
+  }
+
+  @include mq("phone-large", max, "phone", min) {
+    @include flex($basis: 100%);
+  }
+
+  @include mq("phone") {
+    .btn {
+      display: none;
+    }
+  }
+}
+
+.filters-collapse {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 16px;
+  border-right: $border-filters-item;
+
+  @include mq("phone-large", min) {
+    display: none;
+  }
+
+  @include mq("phone", min) {
+    margin-right: 16px;
+  }
+
+  @include mq("phone") {
+    height: 36px;
+    padding-left: 16px;
+    border-left: $border-filters-item;
+  }
+
+  &__icon {
+    position: relative;
+
+    @include size(18px, 12px);
+
+    margin-right: 10px;
+  }
+}
+
+.filters {
+  @include flex($basis: 100%);
+
+  margin: 16px 0;
+
+  @include mq("phone-large") {
+    display: none;
+  }
+
+  &__item {
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    & + .filters__item {
+      margin-left: 13px;
+      padding-left: 13px;
+      border-left: $border-filters-item;
+    }
+
+    &-icon {
+      position: relative;
+
+      @include size(22px, 20px);
+
+      margin-right: 10px;
+    }
+
+    &:first-child {
+      color: $color-secondary;
+    }
+
+    @include mq("tablet") {
+      &:first-child {
+        display: none;
+      }
+
+      &:nth-child(2) {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+      }
+    }
+  }
+
+  &__item-sort {
+    @include flex($align: center);
+
+    &:hover {
+      color: $color-base;
+    }
+  }
+}
+
+.sorts {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 16px;
+
+  &__icon {
+    @include size(13px, 17px);
+
+    margin-right: 10px;
+  }
+
+  &__text {
+    @include truncate(49px);
+  }
+
+  @include mq("phone", min) {
+    display: none;
+  }
+}

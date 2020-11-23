@@ -1,0 +1,60 @@
+div.table
+  div.table__row.table__head
+    div.table__col Заказ
+    div.table__col
+      button.sort Дата
+    div.table__col
+      button.sort Сумма
+    div.table__col
+      button.sort Товары
+  a(href="#").table__row
+    span.table__col.order
+      span.order__info
+        span.order__elem.order__id.heading.heading--h3 110086382
+        span.order__elem.order__payment-method
+          +icon("card")
+        span.order__elem.order__delivery
+          +icon("delivery")
+        span.order__elem.order__message.notify.notify--white.notify--sm
+          +icon("message")
+      span.order__status Данные подтверждены. Ожидает отправки
+    span.table__col.data
+      span.data__time.heading.heading--h3 13:20
+      span.data__year-month-day.small-text 20/07/18
+    span.table__col.total
+      span.heading.heading--h3 4000 грн
+      span.total__old-price.small-text 4000 грн
+    span.table__col.flex.align-items-center
+      span.order-preview
+        span.order-preview__elem
+        span.order-preview__elem
+        span.order-preview__elem
+      span.order-preview-more
+        span.heading.heading--h3 +2
+        span.small-text товра
+      span.order-quantity
+        span.heading.heading--h3 2
+        span.small-text товра
+  a(href="#").table__row
+    span.table__col.order
+      span.order__info
+        span.order__elem.order__id.heading.heading--h3 110086382
+        span.order__elem.order__payment-method
+          +icon("card")
+        span.order__elem.order__delivery
+          +icon("delivery")
+        span.order__elem.order__message.notify.notify--white.notify--sm
+          +icon("message")
+      span.order__status Данные подтверждены. Ожидает отправки
+    span.table__col.data
+      span.data__time.heading.heading--h3 13:20
+      span.data__year-month-day.small-text 20/07/18
+    span.table__col.total
+      span.heading.heading--h3 4000 грн
+      span.total__old-price.small-text 4000 грн
+    span.table__col.flex.align-items-center
+      span.order-preview
+        span.order-preview__elem
+      span.order-quantity
+        span.heading.heading--h3 2
+        span.small-text товара

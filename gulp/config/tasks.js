@@ -1,0 +1,19 @@
+module.exports = [
+  "./gulp/tasks/pug",
+  "./gulp/tasks/styles",
+  "./gulp/tasks/images",
+  "./gulp/tasks/favicon",
+  "./gulp/tasks/fonts",
+  "./gulp/tasks/svg",
+  "./gulp/tasks/scripts",
+  "./gulp/tasks/json",
+  "./gulp/tasks/stylelint",
+  "./gulp/tasks/pug-linter",
+  "./gulp/tasks/eslint",
+  "./gulp/tasks/html-validator",
+  "./gulp/tasks/css-validator",
+  "./gulp/tasks/check-size",
+  "./gulp/tasks/watch",
+  "./gulp/tasks/serve",
+  "./gulp/tasks/clean"
+];

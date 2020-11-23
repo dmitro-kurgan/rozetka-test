@@ -1,0 +1,37 @@
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf) {
+  $src: null;
+
+  $extmods: (
+    eot: "?"
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      resolve(quote(#{$name + "/" + $path + "/" + $path + "." + $extmod})) format(quote(#{$format})),
+      comma
+    );
+  }
+
+  @font-face {
+    font-weight: $weight;
+    font-family: quote($name);
+    font-style: $style;
+    src: $src;
+  }
+}
+
+// All fonts that use in project. Custom it depends on your project
+@include font-face(Roboto, Roboto-Thin, font-weight("Thin"), normal);
+@include font-face(Roboto, Roboto-Light, font-weight("Light"), normal);
+@include font-face(Roboto, Roboto-Regular, font-weight("Regular"), normal);
+@include font-face(Roboto, Roboto-Medium, font-weight("Medium"), normal);
+@include font-face(Roboto, Roboto-Bold, font-weight("Bold"), normal);
+@include font-face(Roboto, Roboto-Black, font-weight("Black"), normal);

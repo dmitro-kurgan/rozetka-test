@@ -1,0 +1,198 @@
+// Main variables of application
+
+@import "../utils/functions/string-replace";
+@import "../utils/functions/string-to-number";
+@import "../utils/functions/pxem";
+@import "../utils/functions/map-get";
+@import "../utils/functions/map-deep-get";
+@import "../utils/functions/map-deep-set";
+@import "../utils/functions/svg-url";
+@import "../utils/functions/misc-functions";
+@import "../utils/mixins/typography";
+@import "../utils/mixins/pseudo-elem";
+@import "../utils/mixins/position";
+@import "../utils/mixins/size";
+@import "../utils/mixins/triangles";
+@import "../utils/mixins/flex";
+@import "../utils/mixins/media";
+
+@import "./color.palette";
+
+$app-min-width: 320px;
+$header-height: 64px;
+$sidebar-width: 280px;
+
+// --- #COLORS--- //
+
+// Color maps
+$grays: ();
+$colors: ();
+$theme-colors: ();
+
+$grays: map-merge((
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+), $grays);
+
+$colors: map-merge((
+  "green":        $green,
+  "yellow":       $yellow
+), $colors);
+
+$theme-colors: map-merge((
+  "primary":   $primary,
+  "secondary": $secondary,
+  "success":   $success,
+  "warning":   $warning
+), $theme-colors);
+
+// Background colors
+$bg-base:      $white;
+
+// Background color for `<body>`
+$body-bg: #f5f5f5;
+
+// Background color for `<header>`
+$header-bg: gray("900");
+
+// Background color for `<aside>`
+$sidebar-bg: gray("600");;
+
+// --- #TYPOGRAPHY--- //
+
+$font-family-base:      "Roboto", Arial, sans-serif;
+$color-base:             gray("900");
+$color-secondary:        gray("600");
+
+// Paragraph sizes
+$font-size-lg:           18px;
+$font-size-md:           14px;
+$font-size-sm:           12px;
+
+$font-size-base:         $font-size-md;
+$font-sizes: ();
+
+$font-sizes: map-merge((
+  "large":  $font-size-lg,
+  "medium": $font-size-md,
+  "small":  $font-size-sm
+), $font-sizes);
+
+// Check if paragraph sizes are in the right order
+@include assert-decreasing($font-sizes, "$font-sizes");
+
+$line-height-base:       1.5;
+
+// Font weights
+$thin:        100;
+$extra-light: 200;
+$light:       300;
+$normal:      400;
+$medium:      500;
+$semi-bold:   600;
+$bold:        700;
+$extra-bold:  800;
+$heavy:       900;
+
+$font-weights: ();
+
+$font-weights: map-merge((
+  "Thin":        $thin,
+  "Extra Light": $extra-light,
+  "Light":       $light,
+  "Regular":     $normal,
+  "Medium":      $medium,
+  "Semi Bold":   $semi-bold,
+  "Bold":        $bold,
+  "Extra Bold":  $extra-bold,
+  "Black":       $heavy
+), $font-weights);
+
+// Check if weight values are in the right order
+@include assert-ascending($font-weights, "$font-weights");
+
+// Titles
+$title-color-base: gray("800");
+
+$h1-size: 42px;
+$h2-size: 36px;
+$h3-size: 24px;
+$h4-size: 21px;
+$h5-size: 18px;
+$h6-size: 16px;
+
+$title-sizes: ();
+
+$title-sizes: map-merge((
+  "h1": $h1-size,
+  "h2": $h2-size,
+  "h3": $h3-size,
+  "h4": $h4-size,
+  "h5": $h5-size,
+  "h6": $h6-size
+), $title-sizes);
+
+// Check if title sizes are in the right order
+@include assert-decreasing($title-sizes, "$title-sizes");
+
+// Convert px to em
+$h1-size-em: em(number(str-replace(#{$h1-size}, "px", "")));
+$h2-size-em: em(number(str-replace(#{$h2-size}, "px", "")));
+$h3-size-em: em(number(str-replace(#{$h3-size}, "px", "")));
+$h4-size-em: em(number(str-replace(#{$h4-size}, "px", "")));
+$h5-size-em: em(number(str-replace(#{$h5-size}, "px", "")));
+$h6-size-em: em(number(str-replace(#{$h6-size}, "px", "")));
+
+// Add new converted values for titles in em to map
+$title-sizes-em: ();
+
+$title-sizes-em: map-merge((
+  "h1": $h1-size-em,
+  "h2": $h2-size-em,
+  "h3": $h3-size-em,
+  "h4": $h4-size-em,
+  "h5": $h5-size-em,
+  "h6": $h6-size-em
+), $title-sizes-em);
+
+// Link
+$link-color:        $color-base;
+$link-hover-color:  $color-base;
+$link-active-color: $color-base;
+
+// --- #VIEW MODEL PROPERTIES--- //
+
+// Borders
+$border-color-base:  rgba($white, 0.2);
+$border-width-base:  1px;
+$border-style-base:  solid;
+
+$border-base:        $border-width-base $border-style-base $border-color-base;
+
+$border-radius-base: 4px;
+$border-radius-sm:   2px;
+
+// Animations
+
+// --- #GRID SYSTEM--- //
+
+// Breakpoints
+$breakpoints: (
+  "app-min-width": $app-min-width,
+  "phone":         640px,
+  "phone-large":   768px,
+  "tablet":        1280px
+);
+
+// Check if breakpoint widths are in the right order
+@include assert-ascending($breakpoints, "$breakpoints");
+
+// Check if the first size of breakpoint map has a right value
+@include assert-starts-at-app-min-width($breakpoints);

@@ -1,0 +1,10 @@
+@mixin flex($justify: null, $align: null, $dir: null, $wrap: null, $grow: null, $shrink: null, $basis: null) {
+  display: flex;
+  flex-basis: $basis;
+  flex-direction: $dir;
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+}

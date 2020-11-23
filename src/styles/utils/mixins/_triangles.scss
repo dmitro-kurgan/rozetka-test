@@ -1,0 +1,51 @@
+@mixin triangle($color, $dir, $size: 6px, $size-2: false) {
+  @content;
+
+  @include size(0);
+
+  @if $size-2 {
+    @if $dir == "down" {
+      margin-top: 0 - round($size-2 / 2.5);
+      border-top: $size-2 solid $color;
+      border-right: $size solid transparent;
+      border-left: $size solid transparent;
+    } @else if $dir == "up" {
+      margin-bottom: 0 - round($size-2 / 2.5);
+      border-right: $size solid transparent;
+      border-bottom: $size-2 solid $color;
+      border-left: $size solid transparent;
+    } @else if $dir == "right" {
+      margin-right: -$size-2;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size-2 solid $color;
+    } @else if $dir == "left" {
+      margin-left: -$size-2;
+      border-top: $size solid transparent;
+      border-right: $size-2 solid $color;
+      border-bottom: $size solid transparent;
+    }
+  } @else {
+    @if $dir == "down" {
+      margin-top: 0 - round($size / 2.5);
+      border-top: $size solid $color;
+      border-right: $size solid transparent;
+      border-left: $size solid transparent;
+    } @else if $dir == "up" {
+      margin-bottom: 0 - round($size / 2.5);
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+      border-left: $size solid transparent;
+    } @else if $dir == "right" {
+      margin-right: -$size;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+    } @else if $dir == "left" {
+      margin-left: -$size;
+      border-top: $size solid transparent;
+      border-right: $size solid $color;
+      border-bottom: $size solid transparent;
+    }
+  }
+}

@@ -1,0 +1,230 @@
+.table {
+  background-color: $white;
+
+  @include mq("phone-large", min) {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12), 0 7px 10px rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 320px 150px 1fr 220px;
+
+    @include mq("tablet") {
+      grid-template-columns: 300px 110px 1fr 67px;
+    }
+
+    @include mq("phone-large") {
+      grid-template-columns: 300px 90px 1fr 67px;
+    }
+
+    @include mq("phone") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__col:last-child {
+    @include mq("tablet") {
+      justify-content: flex-end;
+    }
+  }
+
+  &__head {
+    padding: 22px 20px 22px 24px;
+    color: $color-secondary;
+    border-bottom: 1px solid rgba($black, 0.12);
+
+    @include mq("phone") {
+      display: none;
+    }
+  }
+
+  .heading {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+.table__head .table__col {
+  @include flex($align: center);
+
+  &:last-child {
+    justify-content: flex-end;
+
+    .sort {
+      margin-left: auto;
+    }
+  }
+}
+
+a.table__row {
+  position: relative;
+  padding: 27px 35px 21px 25px;
+  color: $color-base;
+  border-bottom: 1px solid rgba($black, 0.12);
+
+  @include before {
+    @include absolute($top: 0, $bottom: 0, $left: 0);
+
+    @include size(10px, 64px);
+
+    margin: auto;
+    background-color: $grey-blue;
+    border-radius: 0 5px 5px 0;
+  }
+
+  @include mq("phone") {
+    padding: 24px 15px 29px 25px;
+
+    &::before {
+      height: 103px;
+    }
+  }
+}
+
+.order {
+  @include flex($dir: column);
+
+  @include mq("phone") {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  &__info {
+    @include flex($align: center);
+
+    margin-bottom: 8px;
+
+    .heading {
+      margin-bottom: 0;
+    }
+  }
+
+  &__elem {
+    & + .order__elem {
+      margin-left: 16px;
+    }
+  }
+
+  &__status {
+    @include typography($color: #90a4ae, $size: 12px, $lh: 16px);
+  }
+
+  &__delivery,
+  &__payment-method,
+  &__message {
+    height: 22px;
+  }
+
+  &__payment-method {
+    min-width: 22px;
+    max-width: 22px;
+  }
+
+  &__delivery {
+    min-width: 38px;
+    max-width: 38px;
+  }
+
+  &__message {
+    position: relative;
+    min-width: 18px;
+    max-width: 18px;
+
+    @include mq("phone") {
+      display: none;
+    }
+  }
+}
+
+.data {
+  @include flex($dir: column);
+
+  @include mq("phone") {
+    flex-direction: row;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-content: flex-end;
+
+    &__time {
+      margin-right: 5px;
+
+      @include typography($weight: 400, $size: 12px);
+    }
+  }
+}
+
+.total {
+  @include flex($dir: column);
+
+  @include mq("phone") {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  &__old-price {
+    text-decoration: line-through;
+
+    @include mq("phone") {
+      margin-bottom: 5px;
+      margin-left: 16px;
+    }
+  }
+}
+
+.order-quantity {
+  display: none;
+  text-align: center;
+
+  @include mq("phone-large", max) {
+    display: block;
+  }
+
+  @include mq("phone") {
+    display: none;
+  }
+}
+
+.order-preview {
+  display: flex;
+
+  @include mq("phone-large") {
+    display: none;
+  }
+
+  &__elem {
+    display: block;
+
+    @include size(48px);
+
+    border: 1px solid #eaeaea;
+    border-radius: $border-radius-base;
+
+    & + .order-preview__elem {
+      margin-left: 8px;
+    }
+
+    @include mq("tablet", min) {
+      &:last-child {
+        margin-right: 16px;
+      }
+    }
+
+    @include mq("tablet") {
+      &:nth-child(n+2) {
+        display: none;
+      }
+    }
+  }
+}
+
+.order-preview-more {
+  @include flex($dir: column);
+
+  margin-left: auto;
+  text-align: center;
+
+  @include mq("tablet") {
+    display: none;
+  }
+}

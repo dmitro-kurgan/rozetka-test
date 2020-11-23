@@ -1,0 +1,25 @@
+@mixin mq($width, $type: max, $second-width: false, $second-width-type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type == max {
+      $width: $width - 0.02px;
+    }
+
+    @if $second-width {
+      $second-width: map_get($breakpoints, $second-width);
+
+      @if $second-width-type == max {
+        $second-width: $second-width - 0.02px;
+      }
+
+      @media only screen and (#{$type}-width: $width) and (#{$second-width-type}-width: $second-width) {
+        @content;
+      }
+    } @else {
+      @media only screen and (#{$type}-width: $width) {
+        @content;
+      }
+    }
+  }
+}

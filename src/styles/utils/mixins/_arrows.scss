@@ -1,0 +1,19 @@
+@mixin arrow($size: 5px, $border-width: 2px, $color: $black, $dir: "left") {
+  @content;
+
+  @include size(0);
+
+  padding: $size;
+
+  @include border(0, $border-width, $border-width, 0, solid, $color);
+
+  @if $dir == "up" {
+    transform: rotate(-135deg);
+  } @else if $dir == "right" {
+    transform: rotate(-45deg);
+  } @else if $dir == "down" {
+    transform: rotate(45deg);
+  } @else {
+    transform: rotate(135deg);
+  }
+}

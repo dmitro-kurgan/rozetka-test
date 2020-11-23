@@ -1,0 +1,125 @@
+$header-left-padding: 24px 24px 24px 20px;
+
+.header {
+  display: flex;
+  grid-area: header;
+  background-color: $header-bg;
+
+  &__left {
+    @include flex($justify: space-between, $align: center);
+
+    width: $sidebar-width;
+    background-color: $gray-800;
+    border-right: $border-base;
+
+    @include mq("tablet", min) {
+      padding: $header-left-padding;
+    }
+
+    @include mq("tablet") {
+      width: 64px;
+    }
+  }
+
+  &__main {
+    @include flex($justify: flex-end, $align: center, $grow: 1);
+
+    @include mq("phone", min) {
+      padding-right: 32px;
+    }
+  }
+}
+
+.logo {
+  display: block;
+
+  @include size(width("logo.svg"), height("logo.svg"));
+
+  background: resolve("logo.svg");
+
+  @include mq("tablet") {
+    display: none;
+  }
+}
+
+.sidebar-collapse {
+  @include size(16px);
+
+  @include mq("tablet") {
+    display: none;
+  }
+}
+
+.notifications {
+  @include size(32px);
+
+  .ring {
+    @include size(100%);
+  }
+}
+
+.account {
+  $account-border: 1px solid rgba($white, 0.20);
+
+  @include flex($align: center);
+
+  margin-left: 16px;
+  padding: 16px 20px 16px;
+  border-right: $account-border;
+  border-left: $account-border;
+
+  &__name {
+    margin-left: 8px;
+
+    @include typography($color: $white, $lh: 23px);
+    @include truncate(200px);
+
+    @include mq("phone") {
+      display: none;
+    }
+  }
+
+  @include after {
+    @include arrow($size: 2px, $dir: down, $color: $white);
+
+    margin-top: -4px;
+    margin-left: 12px;
+
+    @include mq("phone") {
+      display: none;
+    }
+  }
+}
+
+.hamburger {
+  @include size(100%);
+
+  display: block;
+  padding: $header-left-padding;
+
+  @include mq("tablet", min) {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: block;
+  }
+
+  &__line {
+    display: block;
+
+    @include size(18px, 2px);
+
+    background-color: $white;
+
+    & + .hamburger__line {
+      margin-top: 4px;
+    }
+  }
+}
+
+.icon-ring,
+.icon-account {
+  @include size(32px);
+}

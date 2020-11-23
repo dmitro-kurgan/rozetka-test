@@ -1,0 +1,16 @@
+extends ./core/_core
+include ./layout/main/_main
+
+block variables
+  - var title = "Dmytro Kurhan Rozetka test"
+  - var pageClass = "main-page"
+
+block header
+  include ./layout/header/_header
+
+block main
+  include ./layout/sidebar/_sidebar
+  +main()
+    // Components
+    include ./components/panel/_panel
+    include ./components/table/_table

@@ -1,0 +1,13 @@
+@mixin supports($name, $content: false) {
+  @if map-has_key($props, $name) {
+    $value: map_get($props, $name);
+
+    @supports ($name: $value) {
+      @if $content == false {
+        #{$name}: #{$value};
+      } @else {
+        @content;
+      }
+    }
+  }
+}

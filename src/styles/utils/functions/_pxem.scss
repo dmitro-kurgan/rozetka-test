@@ -1,0 +1,5 @@
+$browser-context: 16; // Default browser font-size value
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}

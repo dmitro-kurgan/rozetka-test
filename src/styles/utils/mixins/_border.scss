@@ -1,0 +1,10 @@
+@mixin border($top, $right: false, $bottom: false, $left: false, $style: null, $color: null) {
+  @if $right and $bottom and $left {
+    border-width: $top $right $bottom $left;
+  } @else {
+    border-width: $top;
+  }
+
+  border-color: $color;
+  border-style: $style;
+}

@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "dashboard": {
+      "name": "Панель управления",
+      "icon": "dashboard"
+    },
+    "goods": {
+      "name": "Товары",
+      "collapse": true
+    },
+    "orders": {
+      "name": "Заказы",
+      "collapse": true
+    },
+    "finances": {
+      "name": "Финансы",
+      "collapse": true,
+      "label": "456 грн"
+    },
+    "clients": {
+      "name": "Клиенты",
+      "collapse": true
+    },
+    "ads": {
+      "name": "Реклама",
+      "collapse": true,
+      "notifications": true
+    },
+    "settings": {
+      "name": "Настройки",
+      "collapse": true
+    }
+  }
+}

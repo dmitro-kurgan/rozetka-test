@@ -1,0 +1,32 @@
+.form-control {
+  max-width: 100%;
+
+  &[type="search"] {
+    padding: 11px 15px 11px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: $border-radius-base;
+
+    @include placeholder {
+      @include typography($color: $color-secondary, $size: 16px, $family: $font-family-base, $lh: 18.75px, $weight: 500);
+
+      @include mq("phone") {
+        @include typography($weight: 400, $size: 14px);
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-search {
+  position: relative;
+}
+
+.btn-search {
+  @include absolute($top: 0, $bottom: 0, $left: 11px);
+  @include size(17px);
+
+  margin: auto;
+}

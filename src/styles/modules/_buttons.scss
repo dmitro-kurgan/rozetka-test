@@ -1,0 +1,56 @@
+$ghost-btn-color: #e9e9e9;
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+
+  @include typography($weight: 500, $size: 12px);
+
+  &--md {
+    height: 36px;
+    line-height: 36px;
+  }
+
+  &--sm {
+    height: 32px;
+    padding: 0 16px;
+    line-height: 32px;
+    border-radius: 16px;
+  }
+
+  &--default {
+    color: $success;
+    text-transform: uppercase;
+    border: 1px solid $success;
+  }
+
+  &--ghost  {
+    font-weight: 400;
+    background-color: $ghost-btn-color;
+    border: 1px solid $ghost-btn-color;
+  }
+
+  &--export {
+    padding: 0 14px;
+    text-transform: uppercase;
+    border-radius: $border-radius-base;
+
+    .icon-export {
+      @include size(20px);
+
+      margin-right: 10px;
+    }
+  }
+
+  .icon-close {
+    @include size(15px);
+
+    margin-left: 8px;
+  }
+}
